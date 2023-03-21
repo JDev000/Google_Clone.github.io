@@ -1,0 +1,409 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+
+
+}
+
+body {
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    background: rgb(146, 144, 144);
+}
+
+video {
+    position: absolute;
+    z-index: -999;
+    opacity: 0.3;
+
+}
+
+
+#blur-bg {
+    filter: blur(100);
+    display: none;
+}
+
+#logo {
+
+    display: grid;
+    place-items: center;
+    margin-bottom: 37px;
+    animation-name: loadAnimation;
+    animation-duration: 4s;
+    animation-play-state: running;
+    animation-iteration-count: 1;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+    z-index: 999;
+}
+
+
+.inputSec {
+    height: 6.8vh;
+    width: 565px;
+    /* width: 100%; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 999px;
+    box-shadow: 0 0 5px rgb(188, 186, 186);
+    background: white;
+    animation-name: loadAnimation1;
+    animation-duration: 4s;
+    animation-play-state: running;
+    animation-iteration-count: 1;
+    animation-delay: 0;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.inputSec #src-icon {
+    transform: scale(0.8);
+    margin-left: 15px;
+}
+
+.inputSec input {
+    height: 100%;
+    width: 100%;
+    border: none;
+    outline: none;
+    padding: 10px;
+    font-size: 1rem;
+}
+
+.inputSec #voice-src-icon {
+    transform: scale(0.8);
+    margin-right: 15px;
+}
+
+.web-display {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    animation-name: loadAnimation2;
+    animation-duration: 3s;
+    animation-play-state: running;
+    animation-iteration-count: 1;
+    animation-delay: 0;
+    animation-timing-function: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+.web-display .tiles {
+    height: 115px;
+    width: 115px;
+    /* margin: 0 10px; */
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.tiles:hover {
+    background: rgb(220, 220, 220);
+}
+
+.tiles .dotted-icon {
+    height: 25%;
+    width: 100%;
+}
+
+.dotted-icon #round-btn {
+    border-radius: 40px;
+    float: right;
+    margin: 3.5px;
+    display: grid;
+    place-items: center;
+    transform: scale(0);
+    transition: all .3s;
+}
+
+#round-btn:hover {
+    /* background: #8b8a80; */
+    background: #ffffff;
+}
+
+#round-btn svg {
+    transform: scale(0.8);
+}
+
+
+.web-info {
+    height: 75%;
+    width: 100%;
+    display: grid;
+    place-items: center;
+}
+
+.web-info #web-rounded-icon {
+    transform: translateY(-30%);
+    height: 45px;
+    width: 45px;
+    background: #f1f3f4;
+    border-radius: 60px;
+    display: grid;
+    place-items: center;
+}
+
+.web-info #web-name {
+    font-size: 0.8rem;
+    color: rgb(62, 61, 59);
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    transform: translateY(-75%);
+
+}
+
+.custom-sec {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: rgb(255, 255, 255);
+    color: #1a73e8;
+    margin: 15px;
+    padding: 1px 8.5px;
+    border-radius: 999px;
+    box-shadow: 0 0px 5px rgb(194, 190, 190);
+    font-size: 0.9rem;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    cursor: pointer;
+    transition: all 0.2s linear;
+}
+
+
+.custom-sec:hover {
+    color: white;
+    background: #1a73e8;
+}
+
+
+.custom-sec #edit-icon {
+    margin-right: 2px;
+    transform: scale(0.6);
+}
+
+/* #custom-btn{
+    background: rgb(255, 255, 255);
+    color: #1a73e8;
+    margin: 10px;
+    padding: 7px 15px;
+    border-radius: 5px;
+    box-shadow:  0 4px 10px gray;
+} */
+
+
+.customize-box {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: auto;
+    min-width: 400px;
+    background: #1a73e8;
+    border-radius: 10px;
+    display: none;
+}
+
+.color-selection {
+    height: auto;
+    width: 100%;
+    background: #e1e3e5;
+    border-top-right-radius: 10px;
+    border-top-left-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.color-selection-section-1 {
+    display: flex;
+    margin: 8px 0;
+}
+
+.color-selection-section-2 {
+    display: flex;
+}
+
+
+.color-selection .color-name {
+    height: 55px;
+    width: 55px;
+    border-radius: 999px;
+    background: white;
+    margin: 0 5px;
+}
+
+#white {
+    background: white;
+}
+
+#black {
+    background: black;
+}
+
+#red {
+    background: red;
+}
+
+#green {
+    background: green;
+}
+
+#blue {
+    background: blue;
+}
+
+#yellow {
+    background: yellow;
+}
+
+#violet {
+    background: violet;
+}
+
+#pink {
+    background: pink;
+}
+
+#brown {
+    background: brown;
+}
+
+#gray {
+    background: gray;
+}
+
+.customize-box .modal-btn {
+    height: auto;
+    width: 100%;
+    background: #f1f3f4;
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+    padding: 0 8px;
+}
+
+.modal-btn button {
+    margin: 10px 4px;
+    padding: 8px;
+    border: none;
+    border-radius: 4px;
+    background: #1a73e8;
+    border: 1px solid #1a73e8;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-transform: capitalize;
+}
+
+#cancel-btn {
+    background: none;
+    color: #1a73e8;
+    border: 1px solid #1a73e8;
+}
+
+
+/* LOADING ANIMATION */
+
+@keyframes loadAnimation {
+
+    from {
+        transform: scale(100);
+    }
+
+    to {
+        transform: scale(1);
+    }
+
+}
+
+
+
+@keyframes loadAnimation1 {
+
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(0);
+    }
+
+}
+
+
+
+@keyframes loadAnimation2 {
+
+    from {
+        transform: rotate(0) scale(20)
+    }
+
+    to {
+        transform: rotate(360deg);
+        scale: 1;
+    }
+
+}
+
+
+
+/* MODAL_ANIMATION */
+
+
+#modalAnimation {
+    animation-name: modalAnimation;
+    animation-play-state: running;
+    animation-iteration-count: 1;
+    animation-duration: 0.4s;
+}
+
+@keyframes modalAnimation {
+    from {
+        scale: 0;
+    }
+
+    to {
+        scale: 1;
+    }
+}
+
+
+
+
+
+
+@media screen and (max-width: 650px) {
+
+    .inputSec {
+        height: 45px;
+        width: 420px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+
+    .inputSec {
+        height: 45px;
+        width: 350px;
+    }
+
+    .custom-sec {
+        width: 35px;
+        padding: 4px;
+    }
+
+    #custom-btn {
+        display: none
+    }
+
+    .custom-sec #edit-icon {
+        margin-right: 0px;
+        transform: scale(0.7);
+    }
+}
